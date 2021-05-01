@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: Zuul
+    
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+persona:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule
+    listOfServers: localhost:8010,localhost:8011,localhost:8012,localhost:8013,localhost:8020,localhost:8021,localhost:8022,localhost:8023
+    ServerListRefreshInterval: 15000 
+zuul:  routes:    persona:
+      serviceId: persona
